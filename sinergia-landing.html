@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sinergia Innovation Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1D2EA4;
+    --orange: #E85C29;
+    --slate: #5A6679;
+    --cream: #DCD4C8;
+    --dark: #0D1033;
+    --white: #FFFFFF;
+    --offwhite: #F5F3EF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.25rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(90,102,121,0.12);
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--dark);
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.1em;
+    text-decoration: none;
+  }
+
+  .logo-spark {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-left: 2px;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, var(--orange), #f0a030);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+
+  /* Custom 4-point star spark */
+  .spark-svg {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 1px;
+    margin-top: -16px;
+  }
+
+  .logo-i-blue {
+    color: var(--blue);
+  }
+
+  nav ul {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: var(--slate);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+
+  nav ul li a:hover { color: var(--blue); }
+
+  .nav-cta {
+    background: var(--orange) !important;
+    color: var(--white) !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(232,92,41,0.35) !important;
+    color: var(--white) !important;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 5% 5rem;
+  }
+
+  .hero-bg-shape {
+    position: absolute;
+    right: -5%;
+    top: 10%;
+    width: 55%;
+    height: 80%;
+    background: var(--blue);
+    opacity: 0.12;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morph 12s ease-in-out infinite;
+  }
+
+  .hero-bg-shape2 {
+    position: absolute;
+    left: 20%;
+    bottom: -10%;
+    width: 30%;
+    height: 40%;
+    background: var(--orange);
+    opacity: 0.08;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    animation: morph 15s ease-in-out infinite reverse;
+  }
+
+  @keyframes morph {
+    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    border: 1px solid rgba(232,92,41,0.4);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--blue);
+    background: linear-gradient(90deg, #4A6CF7, var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(220,212,200,0.85);
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    font-weight: 300;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--orange);
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: 2px solid var(--orange);
+  }
+
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--orange);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--cream);
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: 1px solid rgba(220,212,200,0.3);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--cream);
+    color: var(--white);
+  }
+
+  .hero-stats {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .stat-item {}
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-num span { color: var(--orange); }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: rgba(220,212,200,0.65);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .stat-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin: 2rem 0;
+  }
+
+  .hero-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: rgba(220,212,200,0.7);
+    line-height: 1.6;
+  }
+
+  /* WHY SECTION */
+  .why {
+    background: var(--offwhite);
+    padding: 7rem 5%;
+  }
+
+  .section-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--dark);
+    letter-spacing: -0.02em;
+    max-width: 680px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--blue);
+  }
+
+  .why-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .why-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 5rem;
+  }
+
+  .why-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--slate);
+    font-weight: 300;
+  }
+
+  .why-body strong {
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  .why-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .why-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border: 1px solid rgba(90,102,121,0.1);
+  }
+
+  .why-card:hover { transform: translateY(-6px); }
+
+  .why-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+
+  .why-card:nth-child(1)::before { background: var(--orange); }
+  .why-card:nth-child(2)::before { background: var(--blue); }
+  .why-card:nth-child(3)::before { background: var(--slate); }
+
+  .card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .card-icon.orange { background: rgba(232,92,41,0.1); }
+  .card-icon.blue { background: rgba(29,46,164,0.1); }
+  .card-icon.slate { background: rgba(90,102,121,0.1); }
+
+  .why-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--dark);
+  }
+
+  .why-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--slate);
+    font-weight: 300;
+  }
+
+  /* HOW SECTION */
+  .how {
+    background: var(--dark);
+    padding: 7rem 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .how::before {
+    content: 'HOW';
+    position: absolute;
+    top: -2rem;
+    right: 3%;
+    font-family: 'Playfair Display', serif;
+    font-size: 18rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.02);
+    pointer-events: none;
+    letter-spacing: -0.05em;
+  }
+
+  .how-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .how-header { margin-bottom: 4rem; }
+
+  .how-header .section-title { color: var(--white); }
+  .how-header .section-title em { color: var(--cream); }
+
+  .programs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .program-card {
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .program-card:hover { transform: translateY(-4px); }
+
+  .program-card.featured {
+    background: var(--blue);
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .program-card.secondary {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .program-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(220,212,200,0.6);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .featured .program-tag { color: rgba(255,255,255,0.7); }
+
+  .program-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .featured .program-name { font-size: 2.4rem; }
+
+  .program-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(220,212,200,0.75);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  .program-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .program-features li {
+    font-size: 0.9rem;
+    color: rgba(220,212,200,0.75);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .program-features li::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: var(--orange);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E");
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .featured .program-features li::before {
+    background-color: rgba(255,255,255,0.2);
+  }
+
+  .program-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tank-visual {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .tank-inner {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .tank-orbit {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    animation: orbit 8s linear infinite;
+  }
+
+  @keyframes orbit {
+    0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+  }
+
+  /* WHAT SECTION */
+  .what {
+    background: var(--offwhite);
+    padding: 7rem 5%;
+  }
+
+  .what-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  .what-text .section-title { margin-bottom: 1.5rem; }
+
+  .what-lead {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--slate);
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .what-lead strong { color: var(--dark); font-weight: 600; }
+
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    position: relative;
+    padding-bottom: 2rem;
+  }
+
+  .step:last-child { padding-bottom: 0; }
+
+  .step-line {
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--blue), transparent);
+  }
+
+  .step:last-child .step-line { display: none; }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-content h4 {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+  }
+
+  .step-content p {
+    font-size: 0.9rem;
+    color: var(--slate);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .what-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .outcome-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 1.75rem;
+    border: 1px solid rgba(90,102,121,0.1);
+    transition: transform 0.25s;
+  }
+
+  .outcome-card:hover { transform: translateY(-4px); }
+
+  .outcome-card:nth-child(1) { border-top: 3px solid var(--orange); }
+  .outcome-card:nth-child(2) { border-top: 3px solid var(--blue); margin-top: 1.5rem; }
+  .outcome-card:nth-child(3) { border-top: 3px solid var(--slate); }
+  .outcome-card:nth-child(4) { border-top: 3px solid var(--cream); margin-top: -1.5rem; }
+
+  .outcome-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+
+  .outcome-card h4 {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--dark);
+    margin-bottom: 0.4rem;
+  }
+
+  .outcome-card p {
+    font-size: 0.85rem;
+    color: var(--slate);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* TESTIMONIALS / CTA SECTION */
+  .cta-section {
+    background: var(--dark);
+    padding: 7rem 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(29,46,164,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-section .section-title {
+    color: var(--white);
+    margin: 0 auto 1rem;
+    text-align: center;
+  }
+
+  .cta-lead {
+    font-size: 1.1rem;
+    color: rgba(220,212,200,0.75);
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #080C22;
+    padding: 3rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-text {
+    font-size: 0.85rem;
+    color: rgba(220,212,200,0.4);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .delay-1 { animation-delay: 0.15s; opacity: 0; }
+  .delay-2 { animation-delay: 0.3s; opacity: 0; }
+  .delay-3 { animation-delay: 0.45s; opacity: 0; }
+  .delay-4 { animation-delay: 0.6s; opacity: 0; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-grid, .why-header, .what-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .why-cards, .programs { grid-template-columns: 1fr; }
+    .program-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    nav ul { display: none; }
+    .what-visual { grid-template-columns: 1fr 1fr; }
+    .outcome-card:nth-child(2), .outcome-card:nth-child(4) { margin-top: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    Sinerg<span class="logo-i-blue">i</span>a
+    <svg class="spark-svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M7 0L8.2 5.8L14 7L8.2 8.2L7 14L5.8 8.2L0 7L5.8 5.8L7 0Z" fill="url(#spark-grad)"/>
+      <defs>
+        <linearGradient id="spark-grad" x1="0" y1="0" x2="14" y2="14">
+          <stop offset="0%" stop-color="#E85C29"/>
+          <stop offset="100%" stop-color="#F0A030"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </a>
+  <ul>
+    <li><a href="#why">Por qué</a></li>
+    <li><a href="#how">Programas</a></li>
+    <li><a href="#what">Resultados</a></li>
+    <li><a href="#equipo">Equipo</a></li>
+    <li><a href="#contacto" class="nav-cta">Hablemos</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-bg-shape2"></div>
+  <div class="hero-grid">
+    <div class="hero-content">
+      <span class="hero-tag fade-up">Innovation Hub · Guadalajara, MX</span>
+      <h1 class="fade-up delay-1">
+        Tu empresa ya tiene el talento.<br>
+        <em>Nosotras lo activamos.</em>
+      </h1>
+      <p class="hero-sub fade-up delay-2">
+        Diseñamos experiencias de innovación que transforman equipos en motores de cambio real. Hackatones, bootcamps y programas a la medida de tu organización.
+      </p>
+      <div class="hero-ctas fade-up delay-3">
+        <a href="#contacto" class="btn-primary">Quiero innovar →</a>
+        <a href="#how" class="btn-ghost">Ver programas</a>
+      </div>
+    </div>
+    <div class="hero-stats fade-up delay-4">
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-num">60<span>+</span></div>
+          <div class="stat-label">colaboradores activados por programa</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">5</div>
+          <div class="stat-label">fases de transformación</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100<span>%</span></div>
+          <div class="stat-label">impacto medible en resultados</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">ideas que ya viven en tu equipo</div>
+        </div>
+      </div>
+      <hr class="stat-divider">
+      <p class="hero-quote">"El cambio real siempre empieza desde adentro."</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="why-inner">
+    <div class="why-header">
+      <div>
+        <span class="section-tag">Por qué existimos</span>
+        <h2 class="section-title">Las organizaciones tienen su mayor activo <em>escondido.</em></h2>
+      </div>
+      <div>
+        <p class="why-body">
+          Sabes que tu organización tiene el talento para innovar. Lo has visto en cada área, en cada conversación, en cada persona que propone algo y no encuentra el espacio para desarrollarlo. <strong>Lo que falta no es talento — es la metodología y el ambiente para activarlo.</strong><br><br>
+          Sinergia existe para darte exactamente eso: las herramientas y experiencias para que tú, desde RH, seas quien detone el cambio que toda la organización necesita.
+        </p>
+      </div>
+    </div>
+    <div class="why-cards">
+      <div class="why-card">
+        <div class="card-icon orange">💡</div>
+        <h3>El talento existe</h3>
+        <p>El 84% de los colaboradores tiene ideas de mejora que nunca se implementan. No es un problema de capacidad, es de estructura y metodología.</p>
+      </div>
+      <div class="why-card">
+        <div class="card-icon blue">🔥</div>
+        <h3>La energía se pierde</h3>
+        <p>Sin espacios diseñados para innovar, el entusiasmo del equipo se convierte en frustración. Los mejores talentos buscan otros lugares donde su voz importa.</p>
+      </div>
+      <div class="why-card">
+        <div class="card-icon slate">🎯</div>
+        <h3>El cambio es posible</h3>
+        <p>Con las experiencias correctas, cualquier equipo puede transformarse en un motor de innovación. No se trata de contratar afuera — se trata de despertar adentro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="how" id="how">
+  <div class="how-inner">
+    <div class="how-header">
+      <span class="section-tag">Cómo lo hacemos</span>
+      <h2 class="section-title">Experiencias diseñadas para <em>despertar</em> lo que ya está ahí.</h2>
+    </div>
+    <div class="programs">
+      <!-- Featured program -->
+      <div class="program-card featured">
+        <div>
+          <span class="program-tag">Programa Estrella</span>
+          <h3 class="program-name">Innovation Tank</h3>
+          <p class="program-desc">Conectamos los retos reales de tu organización con la creatividad y talento de tus colaboradores. Un programa de alto rendimiento que genera soluciones con impacto medible.</p>
+          <ul class="program-features">
+            <li>Selección de 60 colaboradores multidisciplinarios</li>
+            <li>Hackatón corporativo con retos reales de la empresa</li>
+            <li>Mentoría estratégica para los 15 finalistas</li>
+            <li>Gran Final tipo Shark Tank con directivos</li>
+          </ul>
+        </div>
+        <div class="program-visual">
+          <div class="tank-visual">
+            <div class="tank-inner">Innovation<br>Tank</div>
+            <div class="tank-orbit">🚀</div>
+          </div>
+        </div>
+      </div>
+      <!-- Secondary programs -->
+      <div class="program-card secondary">
+        <span class="program-tag">Experiencia</span>
+        <h3 class="program-name">Hackathon Corporativo</h3>
+        <p class="program-desc">Un día intenso de innovación colaborativa donde equipos multidisciplinarios resuelven retos estratégicos reales usando metodologías ágiles y pensamiento creativo.</p>
+        <ul class="program-features">
+          <li>Strategic Launch + Innovation Lab</li>
+          <li>Pitch Design Studio</li>
+          <li>Premiación con trofeo oficial</li>
+        </ul>
+      </div>
+      <div class="program-card secondary">
+        <span class="program-tag">Formación</span>
+        <h3 class="program-name">Bootcamp de Liderazgo Innovador</h3>
+        <p class="program-desc">Desarrollamos las habilidades que los líderes de hoy necesitan: pensamiento sistémico, cultura de experimentación y comunicación que inspira equipos.</p>
+        <ul class="program-features">
+          <li>Talleres prácticos con metodologías reales</li>
+          <li>Mentoría individual con expertas</li>
+          <li>Certificación al finalizar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT -->
+<section class="what" id="what">
+  <div class="what-inner">
+    <span class="section-tag">Qué obtienes</span>
+    <div class="what-grid">
+      <div class="what-text">
+        <h2 class="section-title">Resultados que se quedan <em>dentro</em> de la empresa.</h2>
+        <p class="what-lead">
+          No somos consultores que llegan con respuestas. Somos facilitadoras que <strong>construyen capacidades internas.</strong> Cuando terminamos, tu equipo sabe cómo innovar solo.
+        </p>
+        <div class="process-steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-line"></div>
+            <div class="step-content">
+              <h4>Diagnóstico y diseño a medida</h4>
+              <p>Entendemos los retos reales de tu organización antes de diseñar cualquier experiencia.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-line"></div>
+            <div class="step-content">
+              <h4>Activación del talento interno</h4>
+              <p>Seleccionamos y movilizamos a los colaboradores correctos con el perfil innovador.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-line"></div>
+            <div class="step-content">
+              <h4>Experiencia intensiva</h4>
+              <p>Facilitamos el proceso con metodologías probadas: design thinking, lean startup, storytelling.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h4>Impacto medible y sostenible</h4>
+              <p>Entregamos soluciones concretas y dejamos capacidades instaladas para el futuro.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="what-visual">
+        <div class="outcome-card">
+          <div class="outcome-icon">🏆</div>
+          <h4>Soluciones reales</h4>
+          <p>Prototipos y propuestas presentadas a directivos con potencial de implementación.</p>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-icon">🧠</div>
+          <h4>Cultura de innovación</h4>
+          <p>Tu equipo aprende metodologías que puede usar independientemente.</p>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-icon">⚡</div>
+          <h4>Colaboradores activados</h4>
+          <p>Personas que descubren su potencial innovador y se convierten en agentes de cambio.</p>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-icon">📈</div>
+          <h4>ROI en talento</h4>
+          <p>Mayor retención, engagement y productividad en los equipos que participan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- EQUIPO -->
+<section style="background: var(--white); padding: 7rem 5%;" id="equipo">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <span class="section-tag">Quiénes somos</span>
+    <h2 class="section-title" style="margin-bottom: 1rem;">Las personas detrás de <em>Sinergia.</em></h2>
+    <p style="font-size: 1.05rem; color: var(--slate); font-weight: 300; max-width: 600px; margin-bottom: 4rem; line-height: 1.7;">
+      Somos dos especialistas de Cd. Guzmán, Jalisco, convencidas de que el talento regional tiene el mismo potencial que cualquier otro — solo necesita el espacio correcto para brillar.
+    </p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px;">
+
+      <div style="background: var(--offwhite); border-radius: 24px; overflow: hidden; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="background: var(--blue); height: 6px;"></div>
+        <div style="padding: 2.5rem;">
+          <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--dark); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-family: Playfair Display, serif; font-size: 1.8rem; font-weight: 700; color: var(--white);">C</div>
+          <h3 style="font-family: Playfair Display, serif; font-size: 1.4rem; font-weight: 700; color: var(--dark); margin-bottom: 0.3rem;">Cyndi De La Torre</h3>
+          <p style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem;">Estrategia y Cultura Organizacional</p>
+          <p style="font-size: 0.95rem; line-height: 1.7; color: var(--slate); font-weight: 300;">Más de 10 años impulsando crecimiento, liderazgo y transformación empresarial. Colabora con el Tecnológico de Monterrey diseñando experiencias de alto impacto.</p>
+        </div>
+      </div>
+
+      <div style="background: var(--offwhite); border-radius: 24px; overflow: hidden; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="background: var(--orange); height: 6px;"></div>
+        <div style="padding: 2.5rem;">
+          <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--orange); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-family: Playfair Display, serif; font-size: 1.8rem; font-weight: 700; color: var(--white);">J</div>
+          <h3 style="font-family: Playfair Display, serif; font-size: 1.4rem; font-weight: 700; color: var(--dark); margin-bottom: 0.3rem;">Jazmin Reyes</h3>
+          <p style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem;">Innovación y Emprendimiento</p>
+          <p style="font-size: 0.95rem; line-height: 1.7; color: var(--slate); font-weight: 300;">Más de 10 años impulsando proyectos de alto impacto. Ha colaborado con la Universidad Autónoma de Guadalajara conectando innovación con resultados reales.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section" id="contacto">
+  <div class="cta-inner">
+    <span class="section-tag">Empecemos</span>
+    <h2 class="section-title">El talento ya está ahí. Solo falta activarlo.</h2>
+    <p class="cta-lead">
+      Platicamos 30 minutos. Sin presión. Te contamos cómo podemos diseñar una experiencia a la medida de tu organización.
+    </p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/526141704597" target="_blank" class="btn-primary">Escríbenos por WhatsApp →</a>
+      <a href="mailto:hola@sinergiahub.mx" class="btn-ghost">Enviar un correo</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">
+    Sinerg<span style="color: #1D2EA4;">i</span>a
+    <svg style="display:inline;vertical-align:top;margin-left:1px;margin-top:-10px;" width="10" height="10" viewBox="0 0 14 14" fill="none">
+      <path d="M7 0L8.2 5.8L14 7L8.2 8.2L7 14L5.8 8.2L0 7L5.8 5.8L7 0Z" fill="#E85C29"/>
+    </svg>
+  </a>
+  <span class="footer-text">© 2026 Sinergia Innovation Hub · Cd. Guzmán, Jalisco · México</span>
+  <span class="footer-text">hola@sinergiahub.mx</span>
+</footer>
+
+</body>
+</html>
